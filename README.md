@@ -9,7 +9,7 @@ It is essential for manufacturers to catch defective products automatically, but
 
 ### Literature Review
 
-In manufacturing factories, it’s difficult to teach AI to identify flawed products, because it rarely sees defects. Stojanovic et al. clustered 3D-scan deviations of Whirlpool fan blades to learn which deviations are normal and they flagged the ones that were not[1]. Lee et al. trained an LSTM autoencoder on normal sensor data and flagged high reconstruction error, finding that supervised models need costly labels while unsupervised ones are hard to validate [2]. Ko et al. labeled engines using only after-sales repair records and used one-class classifiers because, as we mentioned, the defects are rare[3]. In combination, previous research uses sensor and 3D data, so we will test the same trade-off on images and measure exactly how many labels are needed for supervised detection catch up with unsupervised.
+In manufacturing factories, it’s difficult to teach AI to identify flawed products, because it rarely sees defects. Stojanovic et al. clustered 3D-scan deviations of Whirlpool fan blades to learn which deviations are normal and they flagged the ones that were not[[1]](#ref1 "Stojanovic et al., Big-data-driven anomaly detection in industry (4.0), IEEE Big Data 2016"). Lee et al. trained an LSTM autoencoder on normal sensor data and flagged high reconstruction error, finding that supervised models need costly labels while unsupervised ones are hard to validate [[2]](#ref2 "Lee et al., Enhanced anomaly detection in manufacturing processes through hybrid deep learning techniques, IEEE Access 2023"). Ko et al. labeled engines using only after-sales repair records and used one-class classifiers because, as we mentioned, the defects are rare[[3]](#ref3 "Ko et al., Machine learning-based anomaly detection via integration of manufacturing, inspection and after-sales service data, IMDS 2017"). In combination, previous research uses sensor and 3D data, so we will test the same trade-off on images and measure exactly how many labels are needed for supervised detection catch up with unsupervised.
 
 ### Dataset Description
 
@@ -38,9 +38,9 @@ The main motivation is to reduce the dependence on manually labeled defect data.
 
 ### Unsupervised Learning
 
-- **PCA reconstruction error** (`sklearn.decomposition.PCA`): Following [2], PCA learns how normal parts vary, so defects reconstruct poorly and get a high anomaly score.
+- **PCA reconstruction error** (`sklearn.decomposition.PCA`): Following [[2]](#ref2 "Lee et al., Enhanced anomaly detection in manufacturing processes through hybrid deep learning techniques, IEEE Access 2023"), PCA learns how normal parts vary, so defects reconstruct poorly and get a high anomaly score.
 - **Gaussian mixture model** (`sklearn.mixture.GaussianMixture`): we do soft clustering with probabilities and parts with low probability under the normal clusters are flagged as defects.
-- **K-Means distance** (`sklearn.cluster.KMeans`): According to [1], we cluster normal parts, and the distance to the nearest center is the anomaly score.
+- **K-Means distance** (`sklearn.cluster.KMeans`): According to [[1]](#ref1 "Stojanovic et al., Big-data-driven anomaly detection in industry (4.0), IEEE Big Data 2016"), we cluster normal parts, and the distance to the nearest center is the anomaly score.
 - **Patch nearest neighbors** (`sklearn.neighbors.NearestNeighbors`): get scores and produce heatmaps based on nearest neighbors.
 
 ### Supervised Learning
@@ -67,8 +67,8 @@ We expect supervised models to perform better when sufficient labeled defect ima
 
 ## References
 
-[1] L. Stojanovic, M. Dinic, N. Stojanovic, and A. Stojadinovic, "Big-data-driven anomaly detection in industry (4.0): An approach and a case study," in *Proc. 2016 IEEE Int. Conf. Big Data (Big Data)*, Washington, DC, USA, 2016, pp. 1647–1652, doi: 10.1109/BigData.2016.7840777.
+<a id="ref1"></a>[1] L. Stojanovic, M. Dinic, N. Stojanovic, and A. Stojadinovic, "Big-data-driven anomaly detection in industry (4.0): An approach and a case study," in *Proc. 2016 IEEE Int. Conf. Big Data (Big Data)*, Washington, DC, USA, 2016, pp. 1647–1652, doi: [10.1109/BigData.2016.7840777](https://doi.org/10.1109/BigData.2016.7840777).
 
-[2] K. S. Lee, S. B. Kim, and H.-W. Kim, "Enhanced anomaly detection in manufacturing processes through hybrid deep learning techniques," *IEEE Access*, vol. 11, pp. 93368–93380, 2023, doi: 10.1109/ACCESS.2023.3308698.
+<a id="ref2"></a>[2] K. S. Lee, S. B. Kim, and H.-W. Kim, "Enhanced anomaly detection in manufacturing processes through hybrid deep learning techniques," *IEEE Access*, vol. 11, pp. 93368–93380, 2023, doi: [10.1109/ACCESS.2023.3308698](https://doi.org/10.1109/ACCESS.2023.3308698).
 
-[3] T. Ko, J. H. Lee, H. Cho, S. Cho, W. Lee, and M. Lee, "Machine learning-based anomaly detection via integration of manufacturing, inspection and after-sales service data," *Industrial Management & Data Systems*, vol. 117, no. 5, pp. 927–945, 2017, doi: 10.1108/IMDS-06-2016-0195.
+<a id="ref3"></a>[3] T. Ko, J. H. Lee, H. Cho, S. Cho, W. Lee, and M. Lee, "Machine learning-based anomaly detection via integration of manufacturing, inspection and after-sales service data," *Industrial Management & Data Systems*, vol. 117, no. 5, pp. 927–945, 2017, doi: [10.1108/IMDS-06-2016-0195](https://doi.org/10.1108/IMDS-06-2016-0195).
