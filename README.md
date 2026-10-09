@@ -72,3 +72,9 @@ We expect supervised models to perform better when sufficient labeled defect ima
 <a id="ref2"></a>[2] K. S. Lee, S. B. Kim, and H.-W. Kim, "Enhanced anomaly detection in manufacturing processes through hybrid deep learning techniques," *IEEE Access*, vol. 11, pp. 93368–93380, 2023, doi: [10.1109/ACCESS.2023.3308698](https://doi.org/10.1109/ACCESS.2023.3308698).
 
 <a id="ref3"></a>[3] T. Ko, J. H. Lee, H. Cho, S. Cho, W. Lee, and M. Lee, "Machine learning-based anomaly detection via integration of manufacturing, inspection and after-sales service data," *Industrial Management & Data Systems*, vol. 117, no. 5, pp. 927–945, 2017, doi: [10.1108/IMDS-06-2016-0195](https://doi.org/10.1108/IMDS-06-2016-0195).
+
+### Gantt Chart
+
+## Gantt Chart
+
+![Gantt chart of team responsibilities](Project_Gantt_Chart-1.png)
